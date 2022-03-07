@@ -25,6 +25,16 @@ namespace GraphQL.WebApi.GraphQL.Queries
             new QueryArguments(new QueryArgument<StringGraphType> { Name = "wallet", Description = "wallet" }),
             context => _appContext.AgentList.Where(x => x.RAWallet == context.Arguments["wallet"].GetPropertyValue<string>()));
 
+
+            Field<ListGraphType<IdentityQueryGraphType>>("getIdentity", "Returns Identity",
+            new QueryArguments(new QueryArgument<StringGraphType> { Name = "wallet", Description = "wallet" }),
+            context => _appContext.AgentList.Where(x => x.RAWallet == context.Arguments["wallet"].GetPropertyValue<string>()));
+
+
+           Field<ListGraphType<CurrentBalanceQueryGraphType>>("getCurrentBalance", "Returns Current Balance",
+            new QueryArguments(new QueryArgument<StringGraphType> { Name = "identityId", Description = "identityId" }),
+            context => _appContext.AgentList.Where(x => x.identityId == context.Arguments["identityId"].GetPropertyValue<string>()));
+
         }
     }
 }

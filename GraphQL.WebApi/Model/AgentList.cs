@@ -10,7 +10,7 @@ public class AgentList
     public int Id { get; set; }
     public string identityId { get; set; }
     public string wallet { get; set; }
-    public decimal balance { get; set; }
+    public decimal currentBalance { get; set; }
     public string lastUpdateTime { get; set; }
     public string RAWallet { get; set; }
     //public DateTime DateOfBirth { get; set; }
